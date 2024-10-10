@@ -189,6 +189,31 @@ m <- mt_subset(
 )
 ```
 
+
+### Try to plot the distribution of one or more of the trajectory measures (e.g. AUC or MAD) and check for bimodality 
+TIP! You can check for bimodality in two ways. 
+1) - Extract the trial-wise AUC/MAD scores from the "measures" in your mt object. Plot their distribution and use the "bimodality_coefficient" function to compute bimodality coefficient. 
+2) - Use the "mt_check_bimodality" function, which will automatically comptue the bimodality coefficient from an inputted mt object. 
+
+```{r}
+#Manually extract AUC scores and compute bimodality 
+measures_auc <- m5$measures
+ggplot(measures_auc, aes(AUC))+
+  geom_density()
+hist(measures_auc$AUC)
+
+bimodality_coefficient(measures_auc$AUC, na.rm = FALSE)
+
+#Use the mt_check_bimodality 
+x <- mt_check_bimodality(
+  m5,
+  use = "measures",
+  use_variables = "AUC"
+)
+```
+
+
+
 ### Discussion of mt_align
 Would the function ‘mt_align’ be useful for this data? Why or why not?
 It can do the same as mt_remap symmetric, but it can also be used to rescale (here 'space-normalize') the data. 

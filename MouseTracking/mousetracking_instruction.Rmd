@@ -111,6 +111,17 @@ Normally, you'd want to remove incorrect trials. As the mouse_trap object does n
 
 ```
 
+### Try to plot the distribution of one or more of the trajectory measures (e.g. AUC or MAD) and check for bimodality 
+TIP! You can check for bimodality in two ways. 
+1) - Extract the trial-wise AUC/MAD scores from the "measures" in your mt object. Plot their distribution and use the "bimodality_coefficient" function to compute bimodality coefficient. 
+2) - Use the "mt_check_bimodality" function, which will automatically comptue the bimodality coefficient from an inputted mt object. 
+
+```{r}
+
+```
+
+
+
 ### Discussion of mt_align
 Would the function ‘mt_align’ be useful for this data? Why or why not?
 ```{r}
